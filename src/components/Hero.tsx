@@ -126,7 +126,7 @@ export default function Hero() {
           transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(2.6rem, 6.5vw, 5rem)',
+            fontSize: 'clamp(2.6rem, 5vw, 3.8rem)',
             fontWeight: 900,
             lineHeight: 1.15,
             marginBottom: '1.5rem',
@@ -274,7 +274,7 @@ export default function Hero() {
       </motion.div>
       <style>{`
         @media (max-width: 768px) {
-          .hero-section { padding-top: calc(5.5rem + max(env(safe-area-inset-top, 0px), 44px)) !important; padding-bottom: 3rem !important; }
+          .hero-section { padding-top: calc(5rem + env(safe-area-inset-top, 0px)) !important; padding-bottom: 3rem !important; }
           .hero-badge-wrap { margin-bottom: 1.5rem !important; }
           .hero-badge { font-size: 0.8rem !important; padding: 0.45rem 0.9rem !important; flex-wrap: wrap; justify-content: center; white-space: normal; text-align: center; max-width: 100%; border-radius: 12px !important; }
           .hero-section h1 { font-size: 2rem !important; margin-bottom: 1rem !important; }
@@ -287,7 +287,7 @@ export default function Hero() {
           .hero-section [style*="position: absolute"][style*="bottom"] { bottom: 1rem !important; }
         }
         @media (max-width: 480px) {
-          .hero-section { padding-top: calc(5rem + max(env(safe-area-inset-top, 0px), 44px)) !important; padding-bottom: 2.5rem !important; }
+          .hero-section { padding-top: calc(4.75rem + env(safe-area-inset-top, 0px)) !important; padding-bottom: 2.5rem !important; }
           .hero-section h1 { font-size: 1.75rem !important; }
           .hero-badge { font-size: 0.75rem !important; white-space: normal; text-align: center; line-height: 1.4; padding: 0.4rem 0.75rem !important; border-radius: 10px !important; }
           .hero-vision-grid { grid-template-columns: 1fr !important; }

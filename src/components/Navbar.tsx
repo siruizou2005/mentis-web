@@ -153,9 +153,9 @@ export default function Navbar() {
         }
         @media (max-width: 768px) {
           header {
-            padding-top: calc(1rem + max(env(safe-area-inset-top, 0px), 44px)) !important;
+            padding-top: calc(0.5rem + env(safe-area-inset-top, 0px)) !important;
           }
-          header.scrolled { padding-top: calc(0.6rem + max(env(safe-area-inset-top, 0px), 44px)) !important; }
+          header.scrolled { padding-top: calc(0.5rem + env(safe-area-inset-top, 0px)) !important; }
           .navbar-inner { gap: 0.5rem; overflow: hidden; }
           .navbar-logo { min-width: 0; }
           .desktop-nav { display: none !important; }
