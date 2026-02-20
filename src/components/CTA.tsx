@@ -248,7 +248,7 @@ export default function CTA() {
                     教材帮手
                   </div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.57rem', color: 'var(--amber)', letterSpacing: '0.08em' }}>
-                    AI TEACHING PLATFORM
+                    Mentis
                   </div>
                 </div>
               </div>

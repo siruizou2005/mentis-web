@@ -60,7 +60,7 @@ export default function Navbar() {
             <div style={{
               fontFamily: 'var(--font-mono)', fontSize: '0.57rem',
               color: 'var(--amber)', letterSpacing: '0.1em', marginTop: -1,
-            }}>AI TEACHING PLATFORM</div>
+            }}>Mentis</div>
           </div>
         </a>
 
