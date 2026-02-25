@@ -1,126 +1,128 @@
-# 教材帮手 — AI 教研资源平台
+# Mentis — AI Teaching Resource Platform
 
-面向教师的公益 AI 教研资源平台官网，展示项目愿景、核心功能、适用场景与开发进度。
+A nonprofit AI-powered teaching research platform for educators, showcasing project vision, core features, target audiences, and development roadmap.
 
-## 技术栈
+[中文文档](./README_zh.md)
 
-- **前端**：React 19 + TypeScript + Vite
-- **动效**：Motion (Framer Motion 后继)
-- **后端**：Node.js + Express
-- **数据存储**：JSON 文件（服务器本地）
+## Tech Stack
 
-## 功能特性
+- **Frontend**: React 19 + TypeScript + Vite
+- **Animation**: Motion (Framer Motion successor)
+- **Backend**: Node.js + Express
+- **Storage**: JSON files (server-local)
 
-- 🏠 **首页 Hero**：项目愿景、四大方向卡片
-- ⚡ **核心亮点**：备课效率、教育公平、公益承诺
-- 🗺️ **核心功能**：六大致力方向介绍
-- 📋 **工作原理**：四步流水线说明
-- 🌳 **教材目录树**：可交互树形展示
-- 👩‍🏫 **适用人群**：四类教师画像
-- 🚀 **开发路线图**：Phase 01–04 里程碑
-- 📧 **早期关注**：邮箱采集，存储至服务器本地
+## Features
 
-## 环境要求
+- **Hero Section**: Project vision and four core direction cards
+- **Highlights**: Lesson prep efficiency, educational equity, nonprofit commitment
+- **Core Features**: Six key capability areas
+- **How It Works**: Four-step pipeline walkthrough
+- **Curriculum Tree**: Interactive tree visualization of textbook structure
+- **Personas**: Four educator profile archetypes
+- **Roadmap**: Phase 01–04 milestones
+- **Early Access**: Email collection form, stored locally on server
+
+## Requirements
 
 - Node.js >= 18
 - npm >= 9
 
-## 快速开始
+## Quick Start
 
-### 安装依赖
+### Install dependencies
 
 ```bash
 npm install
 ```
 
-### 开发模式
+### Development
 
-| 命令 | 说明 |
-|------|------|
-| `npm run dev` | 仅启动前端（Vite），访问 http://localhost:5173 |
-| `npm run server` | 仅启动后端 API，端口 3001 |
-| `npm run dev:full` | 同时启动前端 + 后端，推荐 |
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Frontend only (Vite) at http://localhost:5173 |
+| `npm run server` | Backend API only, port 3001 |
+| `npm run dev:full` | Frontend + backend together (recommended) |
 
 ```bash
-# 推荐：前端与后端一起运行
+# Recommended: run frontend and backend together
 npm run dev:full
 ```
 
-开发模式下，Vite 会将 `/api` 请求代理到 `http://localhost:3001`。
+In development mode, Vite proxies `/api` requests to `http://localhost:3001`.
 
-### 构建
+### Build
 
 ```bash
 npm run build
 ```
 
-产物输出到 `dist/` 目录。
+Output is placed in the `dist/` directory.
 
-### 本地预览构建结果
+### Preview build
 
 ```bash
 npm run preview
 ```
 
-### 代码检查
+### Lint
 
 ```bash
 npm run lint
 ```
 
-## 项目结构
+## Project Structure
 
 ```
-├── public/              # 静态资源
-├── server/              # 后端服务
-│   ├── index.js         # Express 入口，邮箱采集 API
-│   └── data/            # 数据目录（emails.json 自动生成）
+├── public/              # Static assets
+├── server/              # Backend service
+│   ├── index.js         # Express entry, email collection API
+│   └── data/            # Data directory (emails.json auto-generated)
 ├── src/
-│   ├── components/      # 页面组件
-│   │   ├── Navbar.tsx   # 导航栏
-│   │   ├── Hero.tsx     # 首屏
+│   ├── components/      # Page components
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
 │   │   ├── Highlights.tsx
 │   │   ├── Features.tsx
 │   │   ├── HowItWorks.tsx
 │   │   ├── TreeVisualization.tsx
 │   │   ├── Personas.tsx
 │   │   ├── Roadmap.tsx
-│   │   ├── CTA.tsx      # 行动号召与邮箱表单
+│   │   ├── CTA.tsx      # Call-to-action and email form
 │   │   └── ParticleCanvas.tsx
 │   ├── App.tsx
 │   ├── main.tsx
-│   └── index.css        # 全局样式与 CSS 变量
+│   └── index.css        # Global styles and CSS variables
 ├── index.html
 ├── vite.config.ts
 ├── tsconfig.json
 └── package.json
 ```
 
-## 后端 API
+## Backend API
 
 ### POST /api/early-access
 
-早期关注邮箱采集接口。
+Collects early-access email addresses.
 
-**请求体：**
+**Request body:**
 
 ```json
 { "email": "user@example.com" }
 ```
 
-**响应：**
+**Response:**
 
-成功：
+Success:
 ```json
 { "ok": true }
 ```
 
-失败：
+Error:
 ```json
-{ "ok": false, "message": "错误信息" }
+{ "ok": false, "message": "error description" }
 ```
 
-**数据存储**：`server/data/emails.json`，格式示例：
+**Storage**: `server/data/emails.json`, example format:
 
 ```json
 [
@@ -128,31 +130,31 @@ npm run lint
 ]
 ```
 
-## 部署
+## Deployment
 
-### 方式一：静态站点 + 独立 API 服务
+### Option 1: Static site + standalone API server
 
-1. **前端**：`npm run build` 后，将 `dist/` 部署到 Nginx、Vercel、Netlify 等
-2. **后端**：将 `server/` 部署到 Node 运行环境（如 VPS、Railway、Render），执行 `node server/index.js`
-3. **跨域**：若前后端域名不同，需在前端将 API 请求指向后端地址，或通过 Nginx 反向代理统一域名
+1. **Frontend**: Run `npm run build`, deploy `dist/` to Nginx, Vercel, Netlify, etc.
+2. **Backend**: Deploy `server/` to a Node environment (e.g. VPS, Railway, Render), run `node server/index.js`
+3. **CORS**: If frontend and backend are on different domains, point API requests to the backend URL or use Nginx as a reverse proxy
 
-### 方式二：同一服务器
+### Option 2: Same server
 
-使用 Nginx 反向代理：
+Use Nginx as reverse proxy:
 
-- `/` → 前端静态文件
-- `/api` → 代理到 Node 服务（如 `http://127.0.0.1:3001`）
+- `/` → frontend static files
+- `/api` → proxy to Node service (e.g. `http://127.0.0.1:3001`)
 
-后端端口可通过环境变量配置：
+Backend port is configurable via environment variable:
 
 ```bash
 PORT=3001 node server/index.js
 ```
 
-## 声明
+## Disclaimer
 
-本平台「教材帮手」与天星教育旗下产品「天星教材帮」无任何关联，二者为独立项目。
+Mentis ("教材帮手") is an independent project with no affiliation to Tianxing Education or its product "天星教材帮".
 
-## 许可证
+## License
 
 Private.
